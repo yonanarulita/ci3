@@ -34,15 +34,15 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                         <a class="navbar-brand" href="#">Yona Narulita - Blog</a>
+                        <a class="navbar-brand" href="#">Yona Narulita - Blog</a>
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav  clear navbar-right ">
 
-
-                            <li><a class="navactive color_animation" href="home.php">HOME</a></li>
+                        
+                             <li><a class="navactive color_animation" href="home.php">HOME</a></li>
                             <li><a class="color_animation" href="about.php">ABOUT</a></li>
                             <li><a class="color_animation" href="blog.php">BLOG</a></li>
                         </ul>
@@ -51,28 +51,29 @@
             </div><!-- /.container-fluid -->
         </nav>
          
-        <div id="top" class="starter_container bg">
-            <div class="follow_container">
-                <div class="col-md-6 col-md-offset-3">
-                    <h2 class="top-title"> Yona Narulita </h2>
-                    <h2 class="white second-title">" Welcome to My Blog "</h2>
-                    <hr>
+        <!-- ============ About Us ============= -->
+
+        <section id="story" class="description_content">
+            <div class="text-content container">
+                <div class="col-md-6">
+                    <h1>About Me</h1>
+                    <div class="fa fa-cutlery fa-2x"></div>
+                    <img src="../../assets/images/foto.jpg" class="img-circle" height="250" width="250"><br><br>
+                    <p class="desc-text">Selamat datang :) Ini adalah blog pribadi saya, Nama saya Yona Narulita. Tempat Tanggal Lahir di Malang pada 07 Juli 1997. 
+                    Bertempat tinggal di Lawang. Saya anak terakhir dari 2 bersaudara. </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="img-section">
+                       <img src="http://localhost/ci3/assets/images/kabob.jpg" width="250" height="220">
+                       <img src="http://localhost/ci3/assets/images/limes.jpg" width="250" height="220">
+                       <div class="img-section-space"></div>
+                       <img src="http://localhost/ci3/assets/images/radish.jpg"  width="250" height="220">
+                       <img src="http://localhost/ci3/assets/images/corn.jpg"  width="250" height="220">
+                   </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-       
-
-        <!-- ============ Footer Section  ============= -->
-
-        <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Yona Blog 2018, Theme by <a href="https://themewagon.com/">ThemeWagon</a></p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
-            </div>
-        </footer>
 
 
         <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery-1.10.2.min.js"> </script>

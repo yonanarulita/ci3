@@ -40,9 +40,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav  clear navbar-right ">
-
-
-                            <li><a class="navactive color_animation" href="home.php">HOME</a></li>
+                         <li><a class="navactive color_animation" href="home.php">HOME</a></li>
                             <li><a class="color_animation" href="about.php">ABOUT</a></li>
                             <li><a class="color_animation" href="blog.php">BLOG</a></li>
                         </ul>
@@ -50,52 +48,3 @@
                 </div>
             </div><!-- /.container-fluid -->
         </nav>
-         
-        <div id="top" class="starter_container bg">
-            <div class="follow_container">
-                <div class="col-md-6 col-md-offset-3">
-                    <h2 class="top-title"> Yona Narulita </h2>
-                    <h2 class="white second-title">" Welcome to My Blog "</h2>
-                    <hr>
-                </div>
-            </div>
-        </div>
-
-       
-
-        <!-- ============ Footer Section  ============= -->
-
-        <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Yona Blog 2018, Theme by <a href="https://themewagon.com/">ThemeWagon</a></p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
-            </div>
-        </footer>
-
-
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery-1.10.2.min.js"> </script>
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/bootstrap.min.js" ></script>
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery-1.10.2.js"></script>     
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery.mixitup.min.js" ></script>
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/main.js" ></script>
-
-    </body>
-</html>
-
-
-
-
-
-<!-- 
-<head>
-<link rel="stylesheet" href="http://localhost/ci3/assets/css/bootstrap.css">
-</head> -->
-
-<!-- <form class="navbar-form navbar-left" role="search">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="Search">
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form> -->
