@@ -10,24 +10,24 @@
 			$this->load->helper('url_helper');
 		}
 		public function index(){
-			$this->load->tampil('header');
-			$this->load->tampil('home');
-			$this->load->tampil('footer');
+			$this->load->view('header');
+			$this->load->view('home');
+			$this->load->view('footer');
 		}
 		public function about(){
-			$this->load->tampil('header');
-			$this->load->tampil('about');
-			$this->load->tampil('footer');
+			$this->load->view('header');
+			$this->load->view('about');
+			$this->load->view('footer');
 		}
 		public function blog()
 		{
 			
 			$data['blog'] = $this->blog_model->get_blog()->result();
-			$this->load->tampil('header');
-			$this->load->tampil('blogg', $data);
-			$this->load->tampil('footer');
+			$this->load->view('header');
+			$this->load->view('blogg', $data);
+			$this->load->view('footer');
 		}
-		public function tampil(){
+		public function view(){
 		
 
 			$id = $this->uri->segment(3); 
@@ -42,7 +42,7 @@
 			$data['konten'] = $data['blog']['konten'];
 			$data['image'] = $data['blog']['image'];
 			
-			$this->load->tampil('tampil', $data);
+			$this->load->view('view', $data);
 		
 		}
 
@@ -58,8 +58,8 @@
 			$this->form_validation->set_rules('image', 'image', 'required');
 			
 			if ($this->form_validation->run() == FALSE) {
-				$this->load->tampil('create');
-				$this->load->tampil('footer');
+				$this->load->view('create');
+				$this->load->view('footer');
 			} else {
 			
 				$this->model_blog->set_blog();

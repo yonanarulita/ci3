@@ -39,9 +39,10 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav main-nav  clear navbar-right ">
-                         <li><a class="navactive color_animation" href="home.php">HOME</a></li>
-                            <li><a class="color_animation" href="about.php">ABOUT</a></li>
-                            <li><a class="color_animation" href="blog.php">BLOG</a></li>
+
+                         <li><a href="<?php echo site_url()?>Blog/index">Home</a></li>
+                            <li><a href="<?php echo site_url()?>Blog/about">About</a></li>
+                            <li><a href="<?php echo site_url()?>Blog/blog">Blog</a></li>
 
                         </ul>
                     </div><!-- /.navbar-collapse -->
