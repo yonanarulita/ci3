@@ -1,82 +1,33 @@
-<!DOCTYPE html>
-<html>
+<h1>Post Article</h1><hr>
+<a href="<?php echo base_url("index.php/gambar/tambah"); ?>">Tambah Data</a><br><br>
 
-    <head>
-        <meta charset="UTF-8">
-        <title> [ Yona Narulita - Blog ] </title>
-        <link rel="stylesheet" href="http://localhost/ci3/assets/css/normalize.css">
-        <link rel="stylesheet" href="http://localhost/ci3/assets/css/main.css" media="screen" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Playball' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="http://localhost/ci3/assets/css/bootstrap.css">
-        <link rel="stylesheet" href="http://localhost/ci3/assets/css/style-portfolio.css">
-        <link rel="stylesheet" href="http://localhost/ci3/assets/css/picto-foundry-food.css" />
-        <link rel="stylesheet" href="http://localhost/ci3/assets/css/jquery-ui.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="http://localhost/ci3/assets/css/font-awesome.min.css" rel="stylesheet">
-        <link rel="icon" href="favicon-1.ico" type="image/x-icon">
+<table border="1" cellpadding="8">
+<tr>
+    
+    <th>Judul</th>
+    <th>Tgl</th>
+    <th>Author</th>
+    <th>Konten</th>
+    <th>Gambar</th>
 
-        <style>
+</tr>
 
-</style>
-    </head>
+<?php
+if( ! empty($gambar)){ // Jika data pada database tidak sama dengan empty (alias ada datanya)
+    foreach($gambar as $data){ // Lakukan looping pada variabel gambar dari controller
+        echo "<tr>";
+        
+        echo "<td>".$data->judul."</td>";
+        echo "<td>".$data->tgl."</td>";
+        echo "<td>".$data->author."</td>";
+        echo "<td>".$data->konten."</td>";
+        echo "<td><img src='".base_url("images/".$data->img)."' width='100' height='100'></td>";
+        // echo "<td>".$data->img."</td>";
 
-    <body>
-
-        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="row">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                         <a class="navbar-brand" href="#">Yona Narulita - Blog</a>
-                    </div>
-
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav main-nav  clear navbar-right ">
-                          <li><a href="<?php echo site_url()?>Blog/index">Home</a></li>
-                            <li><a href="<?php echo site_url()?>Blog/about">About</a></li>
-                            <li><a href="<?php echo site_url()?>Blog/blog">Blog</a></li>
-                        </ul>
-                    </div><!-- /.navbar-collapse -->
-                </div>
-            </div><!-- /.container-fluid -->
-        </nav>
-
-        <div class="container">
-    <div class="">
-        <h2 align="center"><?php echo $blog['judul'] ?></h2><br><br>
-    </div>
-    <div class="container-fluid" align="center">
-        <p><?php echo $blog['tanggal'] ?></p>
-        <p><?php echo $blog['author'] ?></p>
-        <p><?php echo $blog['konten'] ?></p>
-        <p><?php echo $blog['image'] ?></p>
-    </div>
-</div>
-<br><br><br>
-
- <footer class="sub_footer">
-            <div class="container">
-                <div class="col-md-4"><p class="sub-footer-text text-center">&copy; Yona Blog 2018, Theme by <a href="https://themewagon.com/">ThemeWagon</a></p></div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Back to <a href="#top">TOP</a></p>
-                </div>
-                <div class="col-md-4"><p class="sub-footer-text text-center">Built With Care By <a href="#" target="_blank">Us</a></p></div>
-            </div>
-        </footer>
-
-
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery-1.10.2.min.js"> </script>
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/bootstrap.min.js" ></script>
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery-1.10.2.js"></script>     
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/jquery.mixitup.min.js" ></script>
-        <script type="text/javascript" src="http://localhost/ci3/assets/js/main.js" ></script>
-
-    </body>
-</html>
+        echo "</tr>";
+    }
+}else{ // Jika data tidak ada
+    echo "<tr><td colspan='5'>Data tidak ada</td></tr>";
+}
+?>
+</table>
