@@ -52,3 +52,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+
+// Route fungsinya untuk memetakan ulang alamat URL sesuai kebutuhan
+
+// Contoh 1
+// Kita bisa memetakan URL http://localhost/ci3-course/artikel ke 
+// http://localhost/ci3-course/blog
+// Sehingga ketika kita mengakses http://localhost/ci3-course/artikel
+// sama sajahttp://localhost/ci3-course/blog
+// $route['artikel'] = 'blog';
+
+// Contoh 2
+// Di controller blog, kita sudah mempunyai fungsi lihat_detail(),
+// route ini berfungsi memformat url sesuai kebutuhan, misalnya untuk 
+// menyembunyikan lihat_detail di url
+// Sebelumnya, untuk melihat detail berita kita akses: 
+// http://localhost/ci3-course/blog/lihat_detail/traveling/1234
+// sedangkan kita ingin seperti: 
+// http://localhost/ci3-course/blog/traveling/2
+// dimana traveling adalah kategori artikel dan 1234 adalah id artikel
+// maka kita set rute:
+// $route['blog/(:any)/(:num)'] = 'blog/lihat_detail/$1/$2';
+
+
+
+

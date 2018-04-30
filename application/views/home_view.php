@@ -1,5 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-	
+
+
 	<div id="gtco-counter" class="gtco-bg gtco-counter" style="background-image:url(assets/images/img_bg_2.jpg);">
 		<div class="gtco-container">
 			<div class="row">
@@ -57,7 +58,7 @@
 			<!-- <div class="row"> -->
 				<div class="row animate-box">
 					<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-						<h2>Quotes</h2>
+						<h2>Testimonial</h2>
 					</div>
 				</div>
 				<div class="row animate-box">
@@ -67,33 +68,33 @@
 						<div class="item">
 							<div class="testimony-slide active text-center">
 								<figure>
-									<img src="assets/images/person_1.jpg" alt="user">
+									<img src="assets/images/person_1.jpeg">
 								</figure>
-								<span>Cucud, via <a href="#" class="twitter">Twitter</a></span>
+								<span>Wu Yi Fan, via <a href="#" class="twitter">Twitter</a></span>
 								<blockquote>
-									<p>&ldquo;Time doesn't heal anything.. It just teaches us how to live with pain&rdquo;</p>
+									<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
 								</blockquote>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-slide active text-center">
 								<figure>
-									<img src="assets/images/person_2.jpg" alt="user">
+									<img src="assets/images/person_2.jpeg">
 								</figure>
-								<span>Wordstionary, via <a href="#" class="twitter">Twitter</a></span>
+								<span>Lu Han, via <a href="#" class="twitter">Twitter</a></span>
 								<blockquote>
-									<p>&ldquo;Life is about balance. Be kind, but don't let people abuse you. Trust, but don't be deceived. Be content, but never stop improving yourself.&rdquo;</p>
+									<p>&ldquo;Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
 								</blockquote>
 							</div>
 						</div>
 						<div class="item">
 							<div class="testimony-slide active text-center">
 								<figure>
-									<img src="assets/images/person_3.jpg" alt="user">
+									<img src="assets/images/person_3.jpeg">
 								</figure>
-								<span>Me, via <a href="#" class="twitter">Twitter</a></span>
+								<span>Park Chanyeol, via <a href="#" class="twitter">Twitter</a></span>
 								<blockquote>
-									<p>&ldquo;Be Happy.&rdquo;</p>
+									<p>&ldquo;Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
 								</blockquote>
 							</div>
 						</div>
@@ -104,9 +105,6 @@
 	</div>
 
 	
-
-					
-								
 
 
 	<div id="gtco-started">

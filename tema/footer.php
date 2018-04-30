@@ -8,17 +8,10 @@
 				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 					<ul class="gtco-footer-links">
 						<a class="p-2 text-light" href="<?php echo site_url() ?>home">Home</a>
-						
+						<a class="p-2 text-light" href="<?php echo site_url() ?>about">About</a>
 					</ul>
 				</div>
 
-				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
-					<ul class="gtco-footer-links">
-				<a class="p-2 text-light" href="<?php echo site_url() ?>about">About</a>
-
-					</ul>
-				</div>
-				
 				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
 					<ul class="gtco-footer-links">
 						<a class="p-2 text-light" href="<?php echo site_url() ?>blog">Blog</a></li>
@@ -58,22 +51,22 @@
 	</div>
 	
 	<!-- jQuery -->
-	<script src="assets/js/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
 	<!-- jQuery Easing -->
-	<script src="assets/js/jquery.easing.1.3.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
 	<!-- Bootstrap -->
-	<script src="assets/js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<!-- Waypoints -->
-	<script src="assets/js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
 	<!-- Carousel -->
-	<script src="assets/js/owl.carousel.min.js"></script>
+	<script src="js/owl.carousel.min.js"></script>
 	<!-- countTo -->
-	<script src="assets/js/jquery.countTo.js"></script>
+	<script src="js/jquery.countTo.js"></script>
 	<!-- Magnific Popup -->
-	<script src="assets/js/jquery.magnific-popup.min.js"></script>
-	<script src="assets/js/magnific-popup-options.js"></script>
+	<script src="js/jquery.magnific-popup.min.js"></script>
+	<script src="js/magnific-popup-options.js"></script>
 	<!-- Main -->
-	<script src="assets/js/main.js"></script>
+	<script src="js/main.js"></script>
 
 	</body>
 </html>

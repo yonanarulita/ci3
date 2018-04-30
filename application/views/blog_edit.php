@@ -1,8 +1,9 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-		
-
-	
-	<h1 class="jumbotron-heading">Edit Artikel</h1>
+<!-- Begin page content -->
+<main role="main" class="container">
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-heading">Edit Artikel</h1>
 		</div>
 	</section>
 	<section>

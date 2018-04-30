@@ -1,8 +1,16 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-	
 
-<p>
-					<center><a href="<?php echo base_url() ?>blog/create" class="btn btn-primary my-2">Tulis Artikel</a></center>
+	
+<div id="gtco-features">
+		<div class="gtco-container">
+			<div class="row">
+				<div class="col-md-4 col-sm-4 animate-box" data-animate-effect="fadeIn">
+					<!-- <div class="feature-center">
+						<span class="icon">
+							<i class="icon-eye"></i>
+						</span>
+						<p> -->
+					<a href="<?php echo base_url() ?>blog/create" class="btn btn-primary my-2">Tulis Artikel</a>
 				</p>
 			</div>
 		</section>
@@ -55,12 +63,18 @@
 			</div>
 		</div>
 		<?php else : ?>
-		<center><p>Data belum terisi!</p></center>
+		<p>Data Belum Dimasukkan</p>
 		<?php endif; ?>
 		
 	</main>
 	
-<div class="gtco-cover gtco-cover-sm" style="background-image:url(images/img_bg_3.jpg);">
+
+
+		</div>
+	</div>
+
+
+	<div class="gtco-cover gtco-cover-sm" style="background-image:url(images/img_bg_3.jpg);">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
@@ -68,69 +82,14 @@
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
 							<h1>Keep it simple</h1>
-							<h2>Made by <a href="http://google.com" target="_blank">yonanarulita</a></h2>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-
-
-
 	
 	
-	<div id="gtco-features-2">
-		<div class="gtco-container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-					<h2>Why Choose Us</h2>
-					<p>Hmm apa ya?</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-6">
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-check"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Pengertian Framework</h3>
-							<p>Baca pengertiannya diatas</p>
-						</div>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-check"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Fungsi Framework</h3>
-							<p>Baca fungsinya diatas</p>
-						</div>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-check"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Cara Awal Memakai Framework</h3>
-							<p>Baca caranya diatas</p>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="gtco-video gtco-bg" style="background-image: url(images/img_1.jpg); ">
-						<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-video2"></i></a>
-						<div class="overlay"></div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 	<div id="gtco-started">
@@ -164,4 +123,14 @@
 		</div>
 	</div>
 
+
+
 	
+	
+	
+
+
+
+
+				
+				

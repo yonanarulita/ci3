@@ -1,9 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-		
 
 
 
-	<h1 class="jumbotron-heading"><?php echo $artikel->post_title ?></h1>
+<!-- Begin page content -->
+<main role="main" class="container">
+
+	<section class="jumbotron text-center">
+		<div class="container">
+			<h1 class="jumbotron-heading"><?php echo $artikel->post_title ?></h1>
 			
 			<small>Ditulis pada <?php echo $artikel->post_date ?></small>
 		</div>

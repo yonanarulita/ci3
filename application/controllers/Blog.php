@@ -36,6 +36,7 @@ class Blog extends CI_Controller {
 		// Load dulu model Blog
 		$this->load->model('blog_model');
 
+
 		// Mendapatkan data dari model
 		$data['artikel'] = $this->blog_model->get_artikel_by_slug($slug);
 
@@ -82,7 +83,7 @@ class Blog extends CI_Controller {
     			// Jangan lupa buat folder uploads di dalam ci3-course
     			$config['upload_path']          = './uploads/';
     	        $config['allowed_types']        = 'gif|jpg|png';
-    	        $config['max_size']             = 100;
+    	        $config['max_size']             = 200;
     	        $config['max_width']            = 1024;
     	        $config['max_height']           = 768;
 

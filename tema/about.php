@@ -21,7 +21,7 @@
 		</div>
 	</div>
 
-	<div class="gtco-cover gtco-cover-sm" style="assets/background-image:url(images/img_bg_3.jpg);">
+	<div class="gtco-cover gtco-cover-sm" style="background-image:url(images/img_bg_3.jpg);">
 		<div class="overlay"></div>
 		<div class="gtco-container">
 			<div class="row">
@@ -46,7 +46,7 @@
 			<div class="row">
 				<div class="col-md-4 animate-box" data-animate-effect="fadeIn">
 					<div class="gtco-staff">
-						<img src="assets/images/person_1.jpeg">
+						<img src="images/person_1.jpg" alt="Free HTML5 Templates by gettemplates.co">
 						<h3>Wu Yi Fan</h3>
 						<strong class="role">Web Designer</strong>
 						<p>My Name is Wu Yi Fan. From China</p>
@@ -60,7 +60,7 @@
 				</div>
 				<div class="col-md-4 animate-box" data-animate-effect="fadeIn">
 					<div class="gtco-staff">
-						<img src="assets/images/person_2.jpeg">
+						<img src="images/person_2.jpg" alt="Free HTML5 Templates by gettemplates.co">
 						<h3>Lu Han</h3>
 						<strong class="role">Front-end Developer</strong>
 						<p>My Name is Lu Han. From China</p>
@@ -74,7 +74,7 @@
 				</div>
 				<div class="col-md-4 animate-box" data-animate-effect="fadeIn">
 					<div class="gtco-staff">
-						<img src="assets/images/person_3.jpeg">
+						<img src="images/person_3.jpg" alt="Free HTML5 Templates by gettemplates.co">
 						<h3>Park Chanyeol</h3>
 						<strong class="role">Back-end Developer</strong>
 						<p>My Name is Park Chanyeol. From Korea</p>
