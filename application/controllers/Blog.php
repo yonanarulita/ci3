@@ -3,18 +3,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Blog extends CI_Controller {
 
+	function __construct()
+	{
+		parent::__construct();
+
+		// Supaya lebih efisien, kita dapat me-load model, library, helper 
+		// yang sering digunakan pada class ini pada __construct sehingga
+		// dapat dipanggil oleh semua method yang ada pada class ini
+		$this->load->helper('MY');
+
+		$this->load->model('blog_model');
+		$this->load->model('category_model');
+
+	}
+
 	public function index()
 	{
-		// Load dulu model Blog
-		$this->load->model('blog_model');
 
-		// Dapatkan data dari model Blog
-		$data['all_artikel'] = $this->blog_model->get_all_artikel();
+		$data['page_title'] = 'List Artikel'; 
+		
+		// Dapatkan data dari model Blog dengan pagination
+		// Jumlah artikel per halaman
+		$limit_per_page = 6;
+
+		// URI segment untuk mendeteksi "halaman ke berapa" dari URL
+		$start_index = ( $this->uri->segment(3) ) ? $this->uri->segment(3) : 0;
+
+		// Dapatkan jumlah data 
+		$total_records = $this->blog_model->get_total();
+		
+		if ($total_records > 0) {
+			// Dapatkan data pada halaman yg dituju
+			$data["all_artikel"] = $this->blog_model->get_all_artikel($limit_per_page, $start_index);
+			
+			// Konfigurasi pagination
+			$config['base_url'] = base_url() . 'blog/index';
+			$config['total_rows'] = $total_records;
+			$config['per_page'] = $limit_per_page;
+			$config["uri_segment"] = 3;
+			
+			$this->pagination->initialize($config);
+				
+			// Buat link pagination
+			$data["links"] = $this->pagination->create_links();
+		}
 
 		$this->load->view("templates/header");
-
 		// Passing data ke view
-		$this->load->view('blog_view', $data);
+		$this->load->view('blogs/blog_view', $data);
 		$this->load->view("templates/footer");
 	}
 
@@ -33,9 +69,6 @@ class Blog extends CI_Controller {
 	// Membuat fungsi read
 	public function read($slug='')
 	{
-		// Load dulu model Blog
-		$this->load->model('blog_model');
-
 
 		// Mendapatkan data dari model
 		$data['artikel'] = $this->blog_model->get_artikel_by_slug($slug);
@@ -46,7 +79,7 @@ class Blog extends CI_Controller {
 		$this->load->view("templates/header");
 
 		// Passing data ke view
-		$this->load->view('blog_read', $data);
+		$this->load->view('blogs/blog_read', $data);
 
 		$this->load->view("templates/footer");
 	}
@@ -55,23 +88,33 @@ class Blog extends CI_Controller {
 	public function create()
 	{
 
-		$data['mode'] = 'Create';
-
-		$this->load->model('blog_model');
+		$data['page_title'] = 'Tulis Artikel';
 
 		// Kita butuh helper dan library berikut
 	    $this->load->helper('form');
-	    $this->load->library('form_validation');
+		$this->load->library('form_validation');
+
+		// Gunakan fungsi dari model untuk mengisi data dalam dropdown
+		$data['categories'] = $this->category_model->generate_cat_dropdown();
 
 	    // Kita validasi input sederhana, sila cek http://localhost/ci3/user_guide/libraries/form_validation.html
-	    $this->form_validation->set_rules('title', 'Judul', 'required');
-	    $this->form_validation->set_rules('text', 'Konten', 'required');
+	    $this->form_validation->set_rules('title', 'Judul', 'required|is_unique[blogs.post_title]',
+			array(
+				'required' 		=> 'Isi %s donk, males amat.',
+				'is_unique' 	=> 'Judul <strong>' .$this->input->post('title'). '</strong> sudah ada bosque.'
+			));
+
+		$this->form_validation->set_rules('text', 'Konten', 'required|min_length[8]',
+			array(
+				'required' 		=> 'Isi %s lah, hadeeh.',
+				'min_length' 	=> 'Isi %s kurang panjang bosque.',
+			));
 
 	    // Cek apakah input valid atau tidak
 	    if ($this->form_validation->run() === FALSE)
 	    {
 	        $this->load->view('templates/header');
-	        $this->load->view('blog_create');
+	        $this->load->view('blogs/blog_create', $data);
 	        $this->load->view('templates/footer');
 
 	    } else {
@@ -99,7 +142,7 @@ class Blog extends CI_Controller {
 
     	        	// Kita passing pesan error upload ke view supaya user mencoba upload ulang
     	            $this->load->view('templates/header');
-    	            $this->load->view('blog_create', $data);
+    	            $this->load->view('blogs/blog_create', $data);
     	            $this->load->view('templates/footer'); 
 
     	        } else {
@@ -115,9 +158,6 @@ class Blog extends CI_Controller {
     			$post_image = '';
     		}
 
-    		// Helper URL dibutuhkan untuk formatting slug di bawah ini
-	    	$this->load->helper('url');
-
 	    	// Memformat slug sebagai alamat URL, 
 	    	// Misal judul: "Hello World", kita format menjadi "hello-world"
 	    	// Nantinya, URL blog kita menjadi mudah dibaca 
@@ -125,6 +165,7 @@ class Blog extends CI_Controller {
 	    	$slug = url_title($this->input->post('title'), 'dash', TRUE);
 
 	    	$post_data = array(
+				'fk_cat_id' => $this->input->post('cat_id'),
 	    	    'post_title' => $this->input->post('title'),
 	    	   	'post_date' => date("Y-m-d H:i:s"),
 	    	    'post_slug' => $slug,
@@ -138,7 +179,7 @@ class Blog extends CI_Controller {
 		        $this->blog_model->create_artikel($post_data);
 
 		        $this->load->view('templates/header');
-		        $this->load->view('blog_success', $data);
+		        $this->load->view('blogs/blog_success', $data);
 		        $this->load->view('templates/footer'); 
 	    	}
 	    }
@@ -146,18 +187,19 @@ class Blog extends CI_Controller {
 
 
 	// Membuat fungsi edit
-	public function edit($id)
+	public function edit($id = NULL)
 	{
 
-		$data['mode'] = 'Edit';
-
-		$this->load->model('blog_model');
+		$data['page_title'] = 'Edit Artikel';
 
 		// Get artikel dari model berdasarkan $id
 		$data['artikel'] = $this->blog_model->get_artikel_by_id($id);
 
 		// Jika id kosong atau tidak ada id yg dimaksud, lempar user ke halaman blog
-		if ( empty($id) || !$data['artikel'] ) show_404();
+		if ( empty($id) || !$data['artikel'] ) redirect('blog');
+
+		// Gunakan fungsi dari model untuk mengisi data dalam dropdown
+		$data['categories'] = $this->category_model->generate_cat_dropdown();
 
 		// Kita simpan dulu nama file yang lama
 		$old_image = $data['artikel']->post_thumbnail;
@@ -167,14 +209,19 @@ class Blog extends CI_Controller {
 	    $this->load->library('form_validation');
 
 	    // Kita validasi input sederhana, sila cek http://localhost/ci3/user_guide/libraries/form_validation.html
-	    $this->form_validation->set_rules('title', 'Judul', 'required');
-	    $this->form_validation->set_rules('text', 'Konten', 'required');
+		$this->form_validation->set_rules('title', 'Judul', 'required',
+			array('required' => 'Isi %s donk, males amat.'));
+	    $this->form_validation->set_rules('text', 'Konten', 'required|min_length[8]',
+			array(
+				'required' 		=> 'Isi %s lah, hadeeh.',
+				'min_length' 	=> 'Isi %s kurang panjang bosque.',
+			));
 
 	    // Cek apakah input valid atau tidak
 	    if ($this->form_validation->run() === FALSE)
 	    {
 	        $this->load->view('templates/header');
-	        $this->load->view('blog_edit', $data);
+	        $this->load->view('blogs/blog_edit', $data);
 	        $this->load->view('templates/footer');
 
 	    } else {
@@ -202,7 +249,7 @@ class Blog extends CI_Controller {
 
     	        	// Kita passing pesan error upload ke view supaya user mencoba upload ulang
     	            $this->load->view('templates/header');
-    	            $this->load->view('blog_edit', $data);
+    	            $this->load->view('blogs/blog_edit', $data);
     	            $this->load->view('templates/footer'); 
 
     	        } else {
@@ -229,6 +276,7 @@ class Blog extends CI_Controller {
     		}
 
 	    	$post_data = array(
+	    	    'fk_cat_id' => $this->input->post('cat_id'),
 	    	    'post_title' => $this->input->post('title'),
 	    	    'post_content' => $this->input->post('text'),
 	    	    'post_thumbnail' => $post_image,
@@ -241,7 +289,7 @@ class Blog extends CI_Controller {
 		        $this->blog_model->update_artikel($post_data, $id);
 
 		        $this->load->view('templates/header');
-		        $this->load->view('blog_success', $data);
+		        $this->load->view('blogs/blog_success', $data);
 		        $this->load->view('templates/footer'); 
 	    	}
 	    }
@@ -252,9 +300,7 @@ class Blog extends CI_Controller {
 	public function delete($id)
 	{
 
-		$data['mode'] = 'Hapus';
-
-		$this->load->model('blog_model');
+		$data['page_title'] = 'Delete artikel';
 
 		// Get artikel dari model berdasarkan $id
 		$data['artikel'] = $this->blog_model->get_artikel_by_id($id);
@@ -279,12 +325,12 @@ class Blog extends CI_Controller {
         {
         	// Jika gagal, tampilkan failnya
 	        $this->load->view('templates/header');
-	        $this->load->view('blog_failed', $data);
+	        $this->load->view('blogs/blog_failed', $data);
 	        $this->load->view('templates/footer'); 
 	    } else {
 	    	// Ok, sudah terhapus
 	    	$this->load->view('templates/header');
-	        $this->load->view('blog_success', $data);
+	        $this->load->view('blogs/blog_success', $data);
 	        $this->load->view('templates/footer'); 
 	    }
 	}

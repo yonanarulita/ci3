@@ -5,48 +5,67 @@ class Blog_model extends CI_Model {
 
     function __construct()
     {
-    	parent::__construct();
+        parent::__construct();
     }
 
-    // SQL dari tabel Blogs
-    // Jalankan SQL berikut di database codeigniter
-    # ------------------------------------------------------------
+    public function get_all_artikel( $limit = FALSE, $offset = FALSE ) 
+    {
+        // Jika variable $limit ada pada parameter maka kita limit query-nya
+        if ( $limit ) {
+            $this->db->limit($limit, $offset);
+        }
+        // Query Manual
+        // $query = $this->db->query('
+        //      SELECT * FROM blogs
+        //  ');
 
-	// CREATE TABLE `blogs` (
-	  //`id` int(11) NOT NULL AUTO_INCREMENT,
-	   //`post_date` datetime DEFAULT '0000-00-00 00:00:00',
-	   //`post_title` varchar(128) NOT NULL,
-	   //`post_slug` varchar(128) NOT NULL,
-	   //`post_content` text NOT NULL,
-	  // `post_thumbnail` varchar(128) NOT NULL,
-	   //`post_status` tinyint(1) NOT NULL DEFAULT '1' COMMENT '1=Active, 0=Inactive',
-	   //`date_created` datetime NOT NULL,
-	   //PRIMARY KEY (`id`),
-	   //UNIQUE KEY `post_slug` (`post_slug`)
-	 //) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='utf8_general_ci';
+        // Memakai Query Builder
+        // Urutkan berdasar tanggal
+        $this->db->order_by('blogs.post_date', 'DESC');
 
-	public function get_all_artikel() {
-    	 //Query Manual
-    	 $query = $this->db->query('
-    	 		SELECT * FROM blogs
-    	 	');
+        // Inner Join dengan table Categories
+        $this->db->join('categories', 'categories.cat_id = blogs.fk_cat_id');
+        
+        $query = $this->db->get('blogs');
 
-    	// Memakai Query Builder
-    	$query = $this->db->get('blogs');
+        // Return dalam bentuk object
+        return $query->result();
+    }
 
-    	// Return dalam bentuk object
-    	return $query->result();
+    public function get_total() 
+    {
+        // Dapatkan jumlah total artikel
+        return $this->db->count_all("blogs");
     }
 
     public function get_artikel_by_id($id)
     {
-    	$query = $this->db->get_where('blogs', array('id' => $id));
-    	            
-		return $query->row();
+         // Inner Join dengan table Categories
+        $this->db->select ( '
+            blogs.*, 
+            categories.cat_id as category_id, 
+            categories.cat_name,
+            categories.cat_description,
+        ' );
+        $this->db->join('categories', 'categories.cat_id = blogs.fk_cat_id');
+
+        $query = $this->db->get_where('blogs', array('blogs.post_id' => $id));
+                    
+        return $query->row();
     }
 
     public function get_artikel_by_slug($slug)
     {
+
+         // Inner Join dengan table Categories
+        $this->db->select ( '
+            blogs.*, 
+            categories.cat_id as category_id, 
+            categories.cat_name,
+            categories.cat_description,
+        ' );
+        $this->db->join('categories', 'categories.cat_id = blogs.fk_cat_id');
+        
         $query = $this->db->get_where('blogs', array('post_slug' => $slug));
 
         // Karena datanya cuma 1, kita return cukup via row() saja
@@ -61,7 +80,7 @@ class Blog_model extends CI_Model {
     public function update_artikel($data, $id) 
     {
         if ( !empty($data) && !empty($id) ){
-            $update = $this->db->update( 'blogs', $data, array('id'=>$id) );
+            $update = $this->db->update( 'blogs', $data, array('post_id'=>$id) );
             return $update ? true : false;
         } else {
             return false;
@@ -70,11 +89,22 @@ class Blog_model extends CI_Model {
 
     public function delete_artikel($id)
     {
-    	if ( !empty($id) ){
-	    	$delete = $this->db->delete('blogs', array('id'=>$id) );
-	        return $delete ? true : false;
-    	} else {
-    		return false;
-    	}
+        if ( !empty($id) ){
+            $delete = $this->db->delete('blogs', array('post_id'=>$id) );
+            return $delete ? true : false;
+        } else {
+            return false;
+        }
+    }
+
+    public function get_artikel_by_category($category_id)
+    {
+
+        $this->db->order_by('blogs.post_id', 'DESC');
+
+        $this->db->join('categories', 'categories.cat_id = blogs.fk_cat_id');
+        $query = $this->db->get_where('blogs', array('cat_id' => $category_id));
+  
+        return $query->result();
     }
 }

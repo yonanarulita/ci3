@@ -64,16 +64,49 @@
                 <div class="col-xs-2">
                     <div id="gtco-logo"><a href="home.php">Yona Narulita</a></div>
                 </div>
-                <div class="col-xs-8 text-center menu-1">
-                    <ul>
-                        <a class="p-2 text-light" href="<?php echo site_url() ?>home">Home</a></li>
+                <!-- <div class="col-xs-8 text-center menu-1"> -->
+                    <div class="collapse navbar-collapse" id="mainnavbar">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>home">Home</a>
+                        </li>
 
-                        <a class="p-2 text-light" href="<?php echo site_url() ?>about">About</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>about">About</a>
+                        </li>
                         
-                        <a class="p-2 text-light" href="<?php echo site_url() ?>blog">Blog</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>blog">Blog</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>category">Kategori</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?php echo site_url() ?>contact">Contact</a>
+                        </li>
+                   
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          DataTables
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="<?php echo site_url() ?>datatables">Basic</a>
+                            <a class="dropdown-item" href="<?php echo site_url() ?>datatables/view_json">JSON</a>
+                        </div>
+                    </li>
                         
-                        <a class="p-2 text-light" href="<?php echo site_url() ?>contact">Contact</a></li>
+
                     </ul>
+
+                    <div class="btn-group" role="group" aria-label="Data baru">
+                    <?php echo anchor('blog/create', 'Artikel Baru', array('class' => 'btn btn-outline-light')); ?>
+                    <?php echo anchor('category/create', 'Kategori Baru', array('class' => 'btn btn-outline-light')); ?>
+                </div>
+
+
                 </div>
 
                 <div class="col-xs-2 text-right hidden-xs menu-2">
