@@ -62,53 +62,42 @@
         <div class="gtco-container">
             <div class="row">
                 <div class="col-xs-2">
-                    <div id="gtco-logo"><a href="home.php">Yona Narulita</a></div>
+                    <div id="gtco-logo"><a href="home.php"><font color="66CCFF">Yona Narulita</font></a></div>
                 </div>
                 <!-- <div class="col-xs-8 text-center menu-1"> -->
                     
                 <div class="col-xs-8 text-center menu-1">
                 <ul>
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>home">Home
+                    <li class="active">
+                    <a class="nav-link" href="<?php echo site_url() ?>home"><font color="66CCFF">Home</font>
                     </a></li>
 
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>about">About
+                    <li class="active">
+                    <a class="nav-link" href="<?php echo site_url() ?>about1"><font color="66CCFF">About</font>
                     </a></li>
 
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>blog">Blog
+                    <li class="active">
+                    <a class="nav-link" href="<?php echo site_url() ?>contact1"><font color="66CCFF">Contact</font>
                     </a></li>
-
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>category">Kategori
-                    </a></li>
-
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>contact">Contact
-                    </a></li>
-
-                    <li class="has-dropdown">
-                            <a href="#">Datatables</a>
-                            <ul class="dropdown">
-                                <li><a class="dropdown-item" href="<?php echo site_url() ?>datatables">Datatables</a></li>
-                                <li><a class="dropdown-item" href="<?php echo site_url() ?>datatables/view_json">Tables</a></li>
-                            </ul>
-
-
-                    <li class="has-dropdown">
-                            <a href="#">Data Baru</a>
-                            <ul class="dropdown">
-                                <li><?php echo anchor('blog/create', 'Artikel Baru', array('class' => 'btn btn-outline-light')); ?></li>
-                                <li><?php echo anchor('category/create', 'Kategori Baru', array('class' => 'btn btn-outline-light')); ?></li>
-                            </ul>
-
 
                 </ul>
 
 
 </div>
+                
+                <div class="col-xs-1 text-right hidden-xs menu-1">
+                    <ul>
+                        <li class="btn-cta"><a href="<?php echo base_url('user/login_view'); ?>"><span>Login</span></a></li>
+                    </ul>
+                </div>
 
                 <div class="col-xs-1 text-right hidden-xs menu-1">
                     <ul>
-                        <li class="btn-cta"><a href="<?php echo site_url() ?>home"><span>Logout</span></a></li>
+                        <li class="btn-cta"><a href="<?php echo site_url() ?>user"><span>Register</span></a></li>
                     </ul>
                 </div>
+
+                
 
             </div>
             
@@ -117,21 +106,19 @@
 
 
 
-
-                    
-
-    <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(assets/images/img_bg_1.jpg);">
-        <div class="gtco-container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <div class="display-t">
-                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1>Yona Narulita</h1>
-                            <h2>Made by <a href="http://google.com/" target="_blank">yonanarulita.com</a></h2>
-                            <p><a href="#" class="btn btn-default">Get Started</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <header id="gtco-header" class=""  style="background-image:url(assets/images/img_bg_4.jpg);">
+    <!-- <header id="gtco-header" class="gtco-cover"  style="background-image:url(assets/images/img_bg_4.jpg);"> -->
+        <!-- <div class="gtco-container"> -->
+            <!-- <div class="row"> -->
+                <!-- <div class="col-md-1 col-md-offset-2 text-center"> -->
+                    <!-- <div class="display-t"> -->
+                        <!-- <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                            <h1>Yona Narulita</h1> -->
+                            <!-- <h2>Made by <a href="http://google.com/" target="_blank">yonanarulita.com</a></h2>
+                            <p><a href="#" class="btn btn-default">Get Started</a></p> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+            <!-- </div> -->
+        <!-- </div> -->
     </header>

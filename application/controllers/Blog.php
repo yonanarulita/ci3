@@ -100,14 +100,14 @@ class Blog extends CI_Controller {
 	    // Kita validasi input sederhana, sila cek http://localhost/ci3/user_guide/libraries/form_validation.html
 	    $this->form_validation->set_rules('title', 'Judul', 'required|is_unique[blogs.post_title]',
 			array(
-				'required' 		=> 'Isi %s donk, males amat.',
-				'is_unique' 	=> 'Judul <strong>' .$this->input->post('title'). '</strong> sudah ada bosque.'
+				'required' 		=> 'Isi %s , Judul',
+				'is_unique' 	=> 'Judul <strong>' .$this->input->post('title'). '</strong> sudah ada.'
 			));
 
 		$this->form_validation->set_rules('text', 'Konten', 'required|min_length[8]',
 			array(
-				'required' 		=> 'Isi %s lah, hadeeh.',
-				'min_length' 	=> 'Isi %s kurang panjang bosque.',
+				'required' 		=> 'Isi %s Konten.',
+				'min_length' 	=> 'Isi %s Konten kurang panjang.',
 			));
 
 	    // Cek apakah input valid atau tidak
@@ -210,11 +210,11 @@ class Blog extends CI_Controller {
 
 	    // Kita validasi input sederhana, sila cek http://localhost/ci3/user_guide/libraries/form_validation.html
 		$this->form_validation->set_rules('title', 'Judul', 'required',
-			array('required' => 'Isi %s donk, males amat.'));
+			array('required' => 'Isi %s .'));
 	    $this->form_validation->set_rules('text', 'Konten', 'required|min_length[8]',
 			array(
-				'required' 		=> 'Isi %s lah, hadeeh.',
-				'min_length' 	=> 'Isi %s kurang panjang bosque.',
+				'required' 		=> 'Isi %s Konten.',
+				'min_length' 	=> 'Isi %s Konten kurang panjang.',
 			));
 
 	    // Cek apakah input valid atau tidak

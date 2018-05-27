@@ -43,8 +43,8 @@ class Category extends CI_Controller{
 			'Nama Kategori',
 			'required|is_unique[categories.cat_name]',
 			array(
-				'required' => 'Isi %s donk, males amat.',
-				'is_unique' => 'Judul <strong>' . $this->input->post('cat_name') . '</strong> sudah ada bosque.'
+				'required' => 'Isi %s Kategori.',
+				'is_unique' => 'Judul <strong>' . $this->input->post('cat_name') . '</strong> sudah tersedia.'
 			)
 		);
 
@@ -91,7 +91,7 @@ class Category extends CI_Controller{
 
 	    // Kita validasi input sederhana, sila cek http://localhost/ci3/user_guide/libraries/form_validation.html
 		$this->form_validation->set_rules('cat_name', 'Nama Kategori', 'required',
-			array('required' => 'Isi %s donk, males amat.'));
+			array('required' => 'Isi %s Kategori.'));
 	    $this->form_validation->set_rules('cat_description', 'Deskripsi', 'required');
 
 	    // Cek apakah input valid atau tidak

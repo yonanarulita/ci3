@@ -71,44 +71,29 @@
                     <li class="active"><a class="nav-link" href="<?php echo site_url() ?>home">Home
                     </a></li>
 
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>about">About
+                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>about1">About
                     </a></li>
 
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>blog">Blog
+                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>contact1">Contact
                     </a></li>
-
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>category">Kategori
-                    </a></li>
-
-                    <li class="active"><a class="nav-link" href="<?php echo site_url() ?>contact">Contact
-                    </a></li>
-
-                    <li class="has-dropdown">
-                            <a href="#">Datatables</a>
-                            <ul class="dropdown">
-                                <li><a class="dropdown-item" href="<?php echo site_url() ?>datatables">Datatables</a></li>
-                                <li><a class="dropdown-item" href="<?php echo site_url() ?>datatables/view_json">Tables</a></li>
-                            </ul>
-
-
-                    <li class="has-dropdown">
-                            <a href="#">Data Baru</a>
-                            <ul class="dropdown">
-                                <li><?php echo anchor('blog/create', 'Artikel Baru', array('class' => 'btn btn-outline-light')); ?></li>
-                                <li><?php echo anchor('category/create', 'Kategori Baru', array('class' => 'btn btn-outline-light')); ?></li>
-                            </ul>
-
 
                 </ul>
 
 
 </div>
+                <div class="col-xs-1 text-right hidden-xs menu-1">
+                    <ul>
+                        <li class="btn-cta"><a href="<?php echo base_url('user/login_view'); ?>"><span>Login</span></a></li>
+                    </ul>
+                </div>
 
                 <div class="col-xs-1 text-right hidden-xs menu-1">
                     <ul>
-                        <li class="btn-cta"><a href="<?php echo site_url() ?>home"><span>Logout</span></a></li>
+                        <li class="btn-cta"><a href="<?php echo site_url() ?>user"><span>Register</span></a></li>
                     </ul>
                 </div>
+
+                
 
             </div>
             
@@ -117,8 +102,6 @@
 
 
 
-
-                    
 
     <header id="gtco-header" class="gtco-cover" role="banner" style="background-image:url(assets/images/img_bg_1.jpg);">
         <div class="gtco-container">
