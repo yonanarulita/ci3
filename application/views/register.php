@@ -48,6 +48,21 @@
                                   <input class="form-control" placeholder="Mobile No" name="user_mobile" type="number" value="">
                               </div>
 
+                              <div class="form-group">
+                              <label for="">Pilih Level User</label>
+                              <div class="form-check">
+                                <input class="form-check-input" type="radio" name="user_level" id="Author" value="1" checked>
+                                <label class="form-check-label" for="author">Author</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="user_level" id="User" value="2">
+                                <label class="form-check-label" for="user">User</label>
+                            </div>
+                          </div>
+
+
+
+
                               <input class="btn btn-lg btn-success btn-block" type="submit" value="Register" name="register" >
 
                           </fieldset>

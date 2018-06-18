@@ -48,8 +48,14 @@ if(!$user_id){
             <td>No. Telepon User</td>
             <td><?php echo $this->session->userdata('user_mobile');  ?></td>
           </tr>
+
+      <tr class="info">
+            <td>Level User</td>
+            <td><?php echo $this->session->userdata('user_level');  ?></td>
+          </tr>
       </table>
 
+      
 
     </div>
 

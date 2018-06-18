@@ -6,6 +6,8 @@ public function __construct(){
 
         parent::__construct();
   			$this->load->helper('url');
+        $this->load->library('form_validation');
+        $this->load->helper('MY');
   	 		$this->load->model('user_model');
         $this->load->library('session');
 
@@ -27,7 +29,8 @@ public function register_user(){
       'user_email'=>$this->input->post('user_email'),
       'user_password'=>md5($this->input->post('user_password')),
       'user_age'=>$this->input->post('user_age'),
-      'user_mobile'=>$this->input->post('user_mobile')
+      'user_mobile'=>$this->input->post('user_mobile'),
+      'user_level' => $this->input->post('user_level')
         );
         print_r($user);
 
@@ -71,6 +74,7 @@ function login_user(){
         $this->session->set_userdata('user_name',$data['user_name']);
         $this->session->set_userdata('user_age',$data['user_age']);
         $this->session->set_userdata('user_mobile',$data['user_mobile']);
+        $this->session->set_userdata('user_level',$data['user_level']);
 
         $this->load->view('user_profile.php');
 

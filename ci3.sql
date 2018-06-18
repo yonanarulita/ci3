@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 27 Mei 2018 pada 18.31
+-- Generation Time: 18 Jun 2018 pada 17.01
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -130,6 +130,26 @@ INSERT INTO `categories` (`cat_id`, `cat_name`, `cat_description`, `date_created
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `levels`
+--
+
+CREATE TABLE `levels` (
+  `level_id` tinyint(2) NOT NULL,
+  `nama_level` varchar(25) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data untuk tabel `levels`
+--
+
+INSERT INTO `levels` (`level_id`, `nama_level`) VALUES
+(1, 'Administrator'),
+(2, 'Author'),
+(3, 'User');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -139,23 +159,30 @@ CREATE TABLE `user` (
   `user_email` varchar(50) NOT NULL,
   `user_password` varchar(50) NOT NULL,
   `user_age` int(11) NOT NULL,
-  `user_mobile` int(11) NOT NULL
+  `user_mobile` int(11) NOT NULL,
+  `user_level` enum('author','user') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_age`, `user_mobile`) VALUES
-(1, 'Ehtesham', 'ehtesham@gmail.com', '123', 23, 334443333),
-(2, 'Ehtesham', 'ehtesham@gmail.com', '123', 23, 2147483647),
-(3, 'farrukh', 'farrukh@gmail.com', '123', 32, 232342343),
-(4, 'zaid', 'zaid@gmail.com', '202cb962ac59075b964b07152d234b70', 23, 324234234),
-(5, 'yona', 'yona@gmail.com', '95488ef6daa5a49a38ea076c37ea3143', 20, 2147483647),
-(6, 'auo', 'auo@gmail.com', 'f64ab18101461fffa12a32d53c0dc866', 11, 2147483647),
-(7, 'h', 'h@gmail.com', '2510c39011c5be704182423e3a695e91', 1, 2147483647),
-(8, 'haha', 'haha@gmail.com', '4e4d6c332b6fe62a63afe56171fd3725', 2, 123456),
-(9, 'Yona Narulita', 'yona.narulita@yahoo.co.id', '9cae02c030e2c0cfc6f697db3766cfaf', 20, 2147483647);
+INSERT INTO `user` (`user_id`, `user_name`, `user_email`, `user_password`, `user_age`, `user_mobile`, `user_level`) VALUES
+(1, 'Ehtesham', 'ehtesham@gmail.com', '123', 23, 334443333, 'author'),
+(2, 'Ehtesham', 'ehtesham@gmail.com', '123', 23, 2147483647, 'author'),
+(3, 'farrukh', 'farrukh@gmail.com', '123', 32, 232342343, 'author'),
+(4, 'zaid', 'zaid@gmail.com', '202cb962ac59075b964b07152d234b70', 23, 324234234, 'author'),
+(5, 'yona', 'yona@gmail.com', '95488ef6daa5a49a38ea076c37ea3143', 20, 2147483647, 'author'),
+(6, 'auo', 'auo@gmail.com', 'f64ab18101461fffa12a32d53c0dc866', 11, 2147483647, 'author'),
+(7, 'h', 'h@gmail.com', '2510c39011c5be704182423e3a695e91', 1, 2147483647, 'author'),
+(8, 'haha', 'haha@gmail.com', '4e4d6c332b6fe62a63afe56171fd3725', 2, 123456, 'author'),
+(9, 'Yona Narulita', 'yona.narulita@yahoo.co.id', '9cae02c030e2c0cfc6f697db3766cfaf', 20, 2147483647, 'author'),
+(10, 'Siapaya', 'siapaya@gmail.com', 'e1116e43b70707a9fe486dfc1c277531', 22, 2147483647, 'author'),
+(11, '', '', 'd41d8cd98f00b204e9800998ecf8427e', 0, 0, 'author'),
+(12, 'a', 'a@gmail.com', '0cc175b9c0f1b6a831c399e269772661', 1, 1, 'author'),
+(13, 'Yona Narulita', 'yyona77@gmail.com', '95488ef6daa5a49a38ea076c37ea3143', 20, 2147483647, 'author'),
+(14, 'hm', 'hm@gmail.com', '2ab5564b805d8065f4bcf81060472746', 1, 1, 'author'),
+(15, 'j', 'j@gmail.com', '363b122c528f54df4a0446b6bab05515', 1, 1, 'user');
 
 --
 -- Indexes for dumped tables
@@ -174,6 +201,12 @@ ALTER TABLE `blogs`
 --
 ALTER TABLE `categories`
   ADD PRIMARY KEY (`cat_id`);
+
+--
+-- Indexes for table `levels`
+--
+ALTER TABLE `levels`
+  ADD PRIMARY KEY (`level_id`);
 
 --
 -- Indexes for table `user`
@@ -196,10 +229,15 @@ ALTER TABLE `blogs`
 ALTER TABLE `categories`
   MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
+-- AUTO_INCREMENT for table `levels`
+--
+ALTER TABLE `levels`
+  MODIFY `level_id` tinyint(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
